@@ -32,3 +32,31 @@ create table task_categories(
 	foreign key (task_id) references tasks(id),
 	foreign key (category_id) references categories(id)
 );
+
+
+insert into usertypes(id,name,assing_task)
+values(1,'admin',TRUE),(2,'Slave',FALSE),(3,'Dean',TRUE),
+(4,'Backend Developer',FALSE);
+
+insert into users (username,user_type_id)
+values('sebastian',4),('Hary',4),
+('Carolina',1),('Sergio',2),('Vannesa',3);
+
+insert into tasks(title, description, status,dealine,user_id) 
+values ('1','1','Proceso','2023-08-01',2)
+, ('2','1','Proceso','2023-08-01',4);
+
+
+insert into categories (name) 
+values 
+('Desarrollo'),('Administrativo'),('Contenido');
+
+INSERT INTO task_categories(task_id,category_id) 
+values(1,1),(1,2),(1,3),(2,2);
+
+
+delete from tasks;
+delete from users;
+SELECT setval('users_id_seq', 1, false);
+
+SELECT setval('tasks_id_seq', 1, false);
